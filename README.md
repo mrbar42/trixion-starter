@@ -9,7 +9,7 @@ with a matching spirit to trixion's one, this is relatively light weight project
 
 ## How to use
 
-1. get latest [release](https://github.com/mrbar42/trixion/releases) tar.gz/zip
+1. get the latest [release](https://github.com/mrbar42/trixion/releases) tar.gz/zip file and extract
 2. `npm install`
 3. npm run dev
 4. open browser at `localhost:4040`
@@ -96,7 +96,7 @@ style.styl || .scss || .css
 ```
 
 ```javascript
-  import {baseClass} from 'trixion';
+  import {DOM} from 'trixion';
   import {baseClass} from './style.styl';
   
   // DEV: baseClass = 'baseClass-KIHGF' 
@@ -146,6 +146,7 @@ import {loginSelector} from 'src/logic/selectors';
 this might irritate you npm - but you might want it anyway.
   
 bash command (from project root)
+
     ln -s src node_modules/
 
 ## Font icons
