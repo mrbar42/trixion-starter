@@ -18,18 +18,18 @@ with a matching spirit to trixion's one, this is relatively light weight project
 
 ## Project structure
 
-project-root
-├─┬ src
-│ ├── assets/         - static files that will be included in dist folder
-│ ├── components/     - components with their specific styles
-│ ├── logic/          - put here your business logic, selectors, actions etc
-│ ├── styles/         - anything that is related to styling globally goes here
-│ │ └── icons/        - any .svg file that you'll place here will be added to your icon font as ai-iconname
-│ ├── ui/             - folders for reusable ui components that are generic app wise such as buttons, titles, boxes etc
-│ ├── views/          - entry points to your app - your routes main components should go here
-│ ├── app.js          - app main file - rendering
-│ ├── entry.js        - webpack entry point that check if polyfill is needed and calls app.js
-│ └── routes.js       - app routes
+project-root  
+├─┬ src  
+│ ├── assets/         - static files that will be included in dist folder  
+│ ├── components/     - components with their specific styles  
+│ ├── logic/          - put here your business logic, selectors, actions etc  
+│ ├── styles/         - anything that is related to styling globally goes here  
+│ │ └── icons/        - any .svg file that you'll place here will be added to your icon font as ai-iconname  
+│ ├── ui/             - folders for reusable ui components that are generic app wise such as buttons, titles, boxes etc  
+│ ├── views/          - entry points to your app - your routes main components should go here  
+│ ├── app.js          - app main file - rendering  
+│ ├── entry.js        - webpack entry point that check if polyfill is needed and calls app.js  
+│ └── routes.js       - app routes  
 └── dist - your project build files goes here
 
 ## npm scripts
@@ -50,7 +50,7 @@ the main js bundle and the main css file are appended to `src/assets/index.html`
 using [html-webpack-plugin](https://github.com/ampedandwired/html-webpack-plugin) plugin.  
 the plugin also supports variables and more advances usage.
 
-###### why do i need hashing for?
+##### what do I need hashing for?
 adding hash to your files allows you to safely increase caching configuration to days/weeks and even months  
  without the risk of making a change that will not propagate to users due to browser caching/cdn.
 
@@ -78,9 +78,11 @@ the offered way in this project is as follows:
 if you are used to scss you can pretty much keep writing styles as you do.
 2. global style resides in `src/styles/app.styl`
 3. component specific styles are in `style.styl` next to the component js code.  
-there is a feature in css-loader that allows random assignment of classNames like so:
+there is a feature in css-loader that allows random assignment of classNames using the pseudo selector `:local()`.
+4. global reusable classes resides in [`src/styles/helpers.styl`](https://github.com/mrbar42/trixion/blob/master/src/styles/helpers.styl) and are imported like any other module:
 
-style.styl || scss || css
+###### Styling example
+style.styl || .scss || .css
 ```styl
 :local(.baseClass) {
     &-nested {
@@ -107,8 +109,7 @@ style.styl || scss || css
    );
 ```
 
-
-4. global reusable classes resides in [`src/styles/helpers.styl`](https://github.com/mrbar42/trixion/blob/master/src/styles/helpers.styl) and are imported like any other module:
+###### Global shared class example
 
 ```javascript
 import {DOM} from 'trixion';
@@ -122,7 +123,7 @@ export default ({imgSrc}) => (
 );
 ```
 
-## package redirection
+## Package redirection
 
 to allow working with modules that requires react - an alias has been set in webpack's config  
   so that calling importing `react` or `react-dom` or `preact` will actually call trixion which  
@@ -130,7 +131,7 @@ to allow working with modules that requires react - an alias has been set in web
 
   even so... preact is different from react in several features like refs, warnings etc...
   
-## src module
+## Src module
 
 to ease importing of your own code, another alias has been added so that `src` can be imported directly.   
 this will prevent relative path mess and will simplify accessing different parts of you modules.
@@ -147,7 +148,7 @@ this might irritate you npm - but you might want it anyway.
 bash command (from project root)
     ln -s src node_modules/
 
-## font icons
+## Font icons
 
 there is an automated font icon creation that is loaded automatically using webpack [fontgen-loader](https://github.com/DragonsInn/fontgen-loader).
 every svg you'll place under `src/styles/icons` will be added to the font icons set.
