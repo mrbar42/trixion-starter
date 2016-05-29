@@ -9,11 +9,12 @@ with a matching spirit to trixion's one, this is relatively light weight project
 
 ## How to use
 
-1. get the latest [release](https://github.com/mrbar42/trixion/releases) tar.gz/zip file and extract
+1. get the latest [release](https://github.com/mrbar42/trixion-starter/releases) tar.gz/zip file and extract
 2. `npm install`
-3. npm run dev
-4. open browser at `localhost:4040`
-5. start working
+3. clean unnecessary files like README etc...`npm run clean`
+4. npm run dev
+5. open browser at `localhost:4040`
+6. start working
 
 
 ## Project structure
@@ -34,10 +35,11 @@ project-root
 
 ## npm scripts
 
-  - start   - build and start production server on dist folder. port 8080
-  - build   - production build of the app to dist folder 
-  - dev     - start dev server in-memory with hot-reload enabled. port 4040
-  - profile - get production bundle profile. saved as stats.json [read more](https://github.com/mrbar42/trixion/blob/master/docs/DEPENDENCIES.md#method-4---analyze-your-bundle)  
+  - `npm start`   - build and start production server on dist folder. port 8080
+  - `npm run build`   - production build of the app to dist folder 
+  - `npm run dev`     - start dev server in-memory with hot-reload enabled. port 4040
+  - `npm run clean`   - clean unnecessary files like README (you can reuse this to clean you dist)
+  - `npm run profile` - get production bundle profile. saved as stats.json [read more](https://github.com/mrbar42/trixion/blob/master/docs/DEPENDENCIES.md#method-4---analyze-your-bundle)  
   **important** this profile contains your entire code - take it into account 
   
   
