@@ -20,7 +20,6 @@ webpackConfig.plugins.push(
 
 const bundler = webpack(webpackConfig);
 
-
 browserSync({
   port: 4040,
   ui: false,
@@ -30,6 +29,7 @@ browserSync({
     baseDir: 'src/assets',
     middleware: [
       function (req, res, next) {
+        // this allows html5 routing (always return index on non-resource request)
         if (!/(\.(?!html)\w+$|__webpack.*)/.test(req.url)) req.url = '/';
         next();
       },
@@ -37,8 +37,8 @@ browserSync({
         publicPath: webpackConfig.output.publicPath,
         stats: {colors: true},
         headers: {"Access-Control-Allow-Origin": "*"},
-        quiet: false,
-        noInfo: true
+        quiet: false, // be completely silenced
+        noInfo: true // don't show build info
       }),
       webpackHotMiddleware(bundler)
     ]

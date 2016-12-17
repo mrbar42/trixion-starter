@@ -5,7 +5,7 @@
   "dependencies": {
     "normalize.css": "latest",
     "slackers": "^0.1.0",
-    "trixion": "^0.0.4"
+    "trixion": "latest"
   },
   "devDependencies": {
     "autoprefixer": "6.3.6",

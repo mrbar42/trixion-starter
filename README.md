@@ -149,7 +149,7 @@ this might irritate you npm - but you might want it anyway.
   
 bash command (from project root)
 
-    ln -s src node_modules/
+    ln -s ../src node_modules/
 
 ## Font icons
 
